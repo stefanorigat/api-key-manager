@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from "next/link";
-import { login, storeSession, getStoredUser } from '@/lib/auth';
+import { login, storeSession, getCurrentUser } from '@/lib/auth';
 import { initiateSSOLogin } from '@/lib/sso-auth';
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
 
   // Check if user is already logged in
   useEffect(() => {
-    const user = getStoredUser();
+    const user = getCurrentUser();
     setIsLoggedIn(!!user);
   }, []);
 
