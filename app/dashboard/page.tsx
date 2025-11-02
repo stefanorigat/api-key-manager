@@ -412,17 +412,17 @@ export default function Dashboard() {
     <>
       {/* Login Modal */}
       {showLoginModal && (
-        <div className="fixed inset-0 bg-gray-900/30 dark:bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full max-w-md">
+        <div className="fixed inset-0 bg-brand-navy/30 dark:bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+          <div className="bg-white dark:bg-brand-navy rounded-lg shadow-2xl w-full max-w-md">
             <div className="relative p-8 pb-6">
               <div className="flex flex-col items-center text-center mb-6">
-                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-brand-peach rounded-full flex items-center justify-center mb-4">
                   <span className="text-3xl">🔐</span>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wide" style={{ fontFamily: "'Milano Cortina 2026', sans-serif" }}>
+                <h2 className="text-3xl font-display text-brand-dark dark:text-white uppercase tracking-wide">
                   Login
                 </h2>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                <p className="text-sm text-text-secondary dark:text-text-lighter mt-2 font-medium">
                   Enter your credentials to access the dashboard
                 </p>
               </div>
@@ -431,13 +431,13 @@ export default function Dashboard() {
             <form onSubmit={handleLogin}>
               <div className="px-8 pb-6 space-y-5">
                 {loginError && (
-                  <div className="px-4 py-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-md">
-                    <p className="text-sm text-red-600 dark:text-red-400">{loginError}</p>
+                  <div className="px-4 py-3 bg-red-50 dark:bg-accent-red/10 border border-accent-red/30 dark:border-accent-red/50 rounded-md">
+                    <p className="text-sm font-medium text-accent-red">{loginError}</p>
                   </div>
                 )}
                 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-semibold text-text-secondary dark:text-text-lighter mb-2">
                     Email
                   </label>
                   <input
@@ -445,13 +445,13 @@ export default function Dashboard() {
                     value={loginForm.email}
                     onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm"
+                    className="w-full px-4 py-3 border border-text-lighter dark:border-text-tertiary rounded-md focus:ring-2 focus:ring-brand-blue focus:border-brand-blue dark:bg-brand-medium dark:text-white text-base font-medium"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-semibold text-text-secondary dark:text-text-lighter mb-2">
                     Password
                   </label>
                   <input
@@ -459,7 +459,7 @@ export default function Dashboard() {
                     value={loginForm.password}
                     onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                     placeholder="Enter your password"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm"
+                    className="w-full px-4 py-3 border border-text-lighter dark:border-text-tertiary rounded-md focus:ring-2 focus:ring-brand-blue focus:border-brand-blue dark:bg-brand-medium dark:text-white text-base font-medium"
                     required
                   />
                 </div>
@@ -470,9 +470,9 @@ export default function Dashboard() {
                     id="rememberMe"
                     checked={loginForm.rememberMe}
                     onChange={(e) => setLoginForm({ ...loginForm, rememberMe: e.target.checked })}
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    className="rounded border-text-lighter text-brand-blue focus:ring-brand-blue"
                   />
-                  <label htmlFor="rememberMe" className="text-sm text-gray-600 dark:text-gray-300">
+                  <label htmlFor="rememberMe" className="text-sm font-medium text-text-secondary dark:text-text-lighter">
                     Remember me
                   </label>
                 </div>
@@ -481,17 +481,17 @@ export default function Dashboard() {
               <div className="px-8 pb-8 space-y-3">
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-[#2c3e68] text-white font-semibold rounded-md hover:bg-[#1f2d4d] transition-colors cursor-pointer"
+                  className="w-full px-6 py-3 bg-brand-dark text-white font-bold rounded-md hover:bg-brand-navy transition-colors cursor-pointer text-base"
                 >
                   Login
                 </button>
                 
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                    <div className="w-full border-t border-text-lighter dark:border-text-tertiary"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                    <span className="px-2 bg-white dark:bg-brand-navy text-text-light dark:text-text-lighter font-medium">
                       OR
                     </span>
                   </div>
@@ -503,7 +503,7 @@ export default function Dashboard() {
                     setShowLoginModal(false);
                     initiateSSOLogin();
                   }}
-                  className="w-full px-6 py-3 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-md border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full px-6 py-3 bg-white dark:bg-brand-medium text-brand-dark dark:text-white font-bold rounded-md border-2 border-text-lighter dark:border-text-tertiary hover:bg-gray-50 dark:hover:bg-brand-medium/80 transition-colors flex items-center justify-center gap-2 cursor-pointer text-base"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" clipRule="evenodd" />
@@ -517,53 +517,53 @@ export default function Dashboard() {
         </div>
       )}
 
-      <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="flex min-h-screen bg-white dark:bg-brand-navy">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#2c3e68] text-white flex flex-col">
-        <div className="p-6 border-b border-blue-800">
+      <aside className="w-64 bg-brand-navy text-white flex flex-col">
+        <div className="p-6 border-b border-text-tertiary/30">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-white rounded-sm flex items-center justify-center">
-              <span className="text-[#2c3e68] font-bold text-xl">🔑</span>
+            <div className="w-10 h-10 bg-brand-peach rounded flex items-center justify-center">
+              <span className="text-brand-red font-bold text-xl">🔑</span>
             </div>
             <div>
-              <h2 className="font-semibold text-sm">API Key</h2>
-              <p className="text-xs text-gray-300">Management</p>
+              <h2 className="font-bold text-base">API Key</h2>
+              <p className="text-xs text-text-lighter">Management</p>
             </div>
           </div>
         </div>
         
         <nav className="flex-1 p-4">
           <div className="space-y-1">
-            <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            <div className="text-xs font-semibold text-text-light uppercase tracking-wider mb-3">
               Management
             </div>
             <Link
-              href="/dashboard"
-              className="flex items-center gap-3 px-4 py-2.5 rounded bg-blue-900 text-white"
-            >
-              <span className="text-lg">📋</span>
-              <span className="text-sm font-medium">API Keys</span>
-            </Link>
-            <Link
               href="/"
-              className="flex items-center gap-3 px-4 py-2.5 rounded text-gray-300 hover:bg-blue-900/50"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-md text-text-lighter hover:bg-brand-medium/50 font-medium"
             >
               <span className="text-lg">🏠</span>
-              <span className="text-sm font-medium">Home</span>
+              <span className="text-base">Home</span>
+            </Link>
+            <Link
+              href="/dashboard"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-md bg-brand-medium text-white font-medium"
+            >
+              <span className="text-lg">📋</span>
+              <span className="text-base">API Keys</span>
             </Link>
           </div>
 
           <div className="mt-8">
-            <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            <div className="text-xs font-semibold text-text-light uppercase tracking-wider mb-3">
               Settings
             </div>
-            <button className="flex items-center gap-3 px-4 py-2.5 rounded text-gray-300 hover:bg-blue-900/50 w-full">
+            <button className="flex items-center gap-3 px-4 py-2.5 rounded-md text-text-lighter hover:bg-brand-medium/50 w-full font-medium">
               <span className="text-lg">⚙️</span>
-              <span className="text-sm font-medium">Settings</span>
+              <span className="text-base">Settings</span>
             </button>
-            <button className="flex items-center gap-3 px-4 py-2.5 rounded text-gray-300 hover:bg-blue-900/50 w-full">
+            <button className="flex items-center gap-3 px-4 py-2.5 rounded-md text-text-lighter hover:bg-brand-medium/50 w-full font-medium">
               <span className="text-lg">📊</span>
-              <span className="text-sm font-medium">Analytics</span>
+              <span className="text-base">Analytics</span>
             </button>
           </div>
         </nav>
@@ -572,15 +572,15 @@ export default function Dashboard() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-8 py-4">
+        <header className="bg-white dark:bg-brand-dark border-b border-text-lighter dark:border-text-tertiary px-8 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: "'Milano Cortina 2026', sans-serif" }}>
+            <h1 className="text-3xl font-display text-brand-dark dark:text-white">
               API Key List
             </h1>
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsCreating(true)}
-                className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-brand-blue text-white text-base font-bold rounded-md hover:bg-brand-dark transition-colors"
               >
                 + New API Key
               </button>
@@ -592,7 +592,7 @@ export default function Dashboard() {
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                     className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                   >
-                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">
+                    <div className="w-10 h-10 bg-brand-peach rounded-full flex items-center justify-center text-brand-red text-sm font-bold">
                       {user.name?.charAt(0).toUpperCase() || user.email.charAt(0).toUpperCase()}
                     </div>
                   </button>
@@ -604,12 +604,12 @@ export default function Dashboard() {
                         className="fixed inset-0 z-10"
                         onClick={() => setIsUserMenuOpen(false)}
                       />
-                      <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-20">
-                        <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-                          <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                      <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-brand-medium rounded-lg shadow-lg border border-text-lighter dark:border-text-tertiary py-2 z-20">
+                        <div className="px-4 py-3 border-b border-text-lighter dark:border-text-tertiary">
+                          <p className="text-sm font-bold text-brand-dark dark:text-white">
                             {user.name || 'User'}
                           </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                          <p className="text-xs text-text-secondary dark:text-text-lighter truncate font-medium">
                             {user.email}
                           </p>
                         </div>
@@ -617,14 +617,14 @@ export default function Dashboard() {
                           href={`${process.env.NEXT_PUBLIC_KEYCLOAK_ISSUER}/account/`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 cursor-pointer"
+                          className="w-full px-4 py-2 text-left text-base text-text-secondary dark:text-text-lighter hover:bg-gray-100 dark:hover:bg-brand-dark flex items-center gap-2 cursor-pointer font-medium"
                         >
                           <span>👤</span>
                           <span>View my profile</span>
                         </a>
                         <button
                           onClick={handleLogout}
-                          className="w-full px-4 py-2 text-left text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 cursor-pointer"
+                          className="w-full px-4 py-2 text-left text-base text-accent-red hover:bg-gray-100 dark:hover:bg-brand-dark flex items-center gap-2 cursor-pointer font-medium"
                         >
                           <span>🚪</span>
                           <span>Logout</span>
@@ -639,13 +639,13 @@ export default function Dashboard() {
         </header>
 
         {/* Filters and Search */}
-        <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-8 py-4">
-          <div className="flex items-center gap-4 flex-wrap">
+        <div className="bg-white dark:bg-brand-dark border-b border-text-lighter dark:border-text-tertiary px-8 py-4">
+          <div className="flex items-center gap-4 flex-wrap" suppressHydrationWarning>
             {/* Bulk Actions */}
             {selectedKeys.length > 0 && (
               <button
                 onClick={handleBulkDelete}
-                className="px-4 py-2 text-sm font-medium text-red-700 bg-red-50 border border-red-200 rounded hover:bg-red-100 transition-colors"
+                className="px-4 py-2 text-base font-bold text-accent-red bg-red-50 dark:bg-accent-red/10 border border-accent-red/30 rounded-md hover:bg-accent-red/20 transition-colors"
               >
                 Delete Selected ({selectedKeys.length})
               </button>
@@ -655,7 +655,7 @@ export default function Dashboard() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 text-base border border-text-lighter dark:border-text-tertiary rounded-md bg-white dark:bg-brand-medium text-brand-dark dark:text-white focus:ring-2 focus:ring-brand-blue font-medium"
             >
               <option value="All">All Status</option>
               <option value="Active">Active</option>
@@ -668,7 +668,7 @@ export default function Dashboard() {
             <select
               value={environmentFilter}
               onChange={(e) => setEnvironmentFilter(e.target.value)}
-              className="px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 text-base border border-text-lighter dark:border-text-tertiary rounded-md bg-white dark:bg-brand-medium text-brand-dark dark:text-white focus:ring-2 focus:ring-brand-blue font-medium"
             >
               <option value="All">All Environments</option>
               <option value="Production">Production</option>
@@ -684,11 +684,11 @@ export default function Dashboard() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name, key, or ID..."
-                className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 text-base border border-text-lighter dark:border-text-tertiary rounded-md bg-white dark:bg-brand-medium text-brand-dark dark:text-white focus:ring-2 focus:ring-brand-blue font-medium"
               />
             </div>
 
-            <span className="text-sm text-gray-600 dark:text-gray-400">
+            <span className="text-base text-text-secondary dark:text-text-lighter font-medium">
               {filteredKeys.length} keys
             </span>
           </div>
@@ -696,20 +696,20 @@ export default function Dashboard() {
 
         {/* Create/Edit Form Modal */}
         {(isCreating || editingId) && (
-          <div className="fixed inset-0 bg-gray-900/30 dark:bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+          <div className="fixed inset-0 bg-brand-navy/30 dark:bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+            <div className="bg-white dark:bg-brand-navy rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
               <div className="relative p-8 pb-6">
                 <button
                   onClick={cancelEdit}
-                  className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl"
+                  className="absolute top-6 right-6 text-text-light hover:text-text-tertiary dark:hover:text-text-lighter text-2xl cursor-pointer"
                 >
                   ×
                 </button>
                 <div className="flex flex-col items-center text-center mb-6">
-                  <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 bg-brand-peach rounded-full flex items-center justify-center mb-4">
                     <span className="text-3xl">🔑</span>
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white uppercase tracking-wide" style={{ fontFamily: "'Milano Cortina 2026', sans-serif" }}>
+                  <h2 className="text-3xl font-display text-brand-dark dark:text-white uppercase tracking-wide">
                     {editingId ? 'Edit API Key' : 'Create New API Key'}
                   </h2>
                 </div>

@@ -3,29 +3,91 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Figma Design System Colors */
+  --brand-navy: #020920;
+  --brand-dark: #0C173A;
+  --brand-medium: #35426F;
+  --brand-blue: #3C12ED;
+  --brand-red: #B42422;
+  --brand-red-light: #D00F32;
+  --brand-peach: #FFE5C0;
+  
+  --text-primary: #0C173A;
+  --text-secondary: #35426F;
+  --text-tertiary: #677397;
+  --text-light: #7F8FA8;
+  --text-lighter: #BDC7D8;
+  
+  --accent-blue: #0078D0;
+  --accent-red: #F0282D;
+  --accent-green: #00A651;
+  --accent-yellow: #FFB114;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* Brand colors */
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-medium: var(--brand-medium);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-light: var(--brand-red-light);
+  --color-brand-peach: var(--brand-peach);
+  
+  /* Text colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-light: var(--text-light);
+  --color-text-lighter: var(--text-lighter);
+  
+  /* Accent colors */
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-red: var(--accent-red);
+  --color-accent-green: var(--accent-green);
+  --color-accent-yellow: var(--accent-yellow);
+  
+  /* Typography */
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-display: 'Olympic Headline', var(--font-inter), 'Inter', system-ui, sans-serif;
+  
+  /* Font sizes (aligned with Figma) */
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 26px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 40px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020920;
+    --foreground: #ffffff;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Milano Cortina 2026 Font */
-.font-milano {
-  font-family: 'Milano Cortina 2026', sans-serif;
+/* Display font class for headings */
+.font-display {
+  font-family: 'Olympic Headline', var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.69px;
 }
