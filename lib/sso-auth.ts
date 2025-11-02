@@ -21,7 +21,8 @@ async function getKeycloakClient(): Promise<Client> {
     const keycloakIssuer = await Issuer.discover(issuerUrl);
     
     // Customize the issuer to disable strict validation for Keycloak compatibility
-    keycloakIssuer[Symbol.for('openid-client.custom.http_options')] = (url: any, options: any) => {
+    // @ts-ignore - Symbol indexing is valid for openid-client but TypeScript doesn't allow it
+    (keycloakIssuer as any)[Symbol.for('openid-client.custom.http_options')] = (url: any, options: any) => {
       options.timeout = 10000;
       return options;
     };
