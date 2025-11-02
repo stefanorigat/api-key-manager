@@ -538,18 +538,18 @@ export default function Dashboard() {
               Management
             </div>
             <Link
-              href="/dashboard"
-              className="flex items-center gap-3 px-4 py-2.5 rounded-md bg-brand-medium text-white font-medium"
-            >
-              <span className="text-lg">📋</span>
-              <span className="text-base">API Keys</span>
-            </Link>
-            <Link
               href="/"
               className="flex items-center gap-3 px-4 py-2.5 rounded-md text-text-lighter hover:bg-brand-medium/50 font-medium"
             >
               <span className="text-lg">🏠</span>
               <span className="text-base">Home</span>
+            </Link>
+            <Link
+              href="/dashboard"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-md bg-brand-medium text-white font-medium"
+            >
+              <span className="text-lg">📋</span>
+              <span className="text-base">API Keys</span>
             </Link>
           </div>
 
