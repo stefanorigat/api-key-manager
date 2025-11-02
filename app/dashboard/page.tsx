@@ -640,7 +640,7 @@ export default function Dashboard() {
 
         {/* Filters and Search */}
         <div className="bg-white dark:bg-brand-dark border-b border-text-lighter dark:border-text-tertiary px-8 py-4">
-          <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-4 flex-wrap" suppressHydrationWarning>
             {/* Bulk Actions */}
             {selectedKeys.length > 0 && (
               <button
