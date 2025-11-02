@@ -5,3 +5,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+module.exports = {
+  allowedDevOrigins: ['linnie-substructional-davion.ngrok-free.dev', '*.innie-substructional-davion.ngrok-free.dev'],
+}
