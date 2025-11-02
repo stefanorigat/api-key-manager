@@ -1,11 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'standalone',
+  allowedDevOrigins: ['linnie-substructional-davion.ngrok-free.dev', '*.innie-substructional-davion.ngrok-free.dev'],
 };
 
 export default nextConfig;
-
-module.exports = {
-  allowedDevOrigins: ['linnie-substructional-davion.ngrok-free.dev', '*.innie-substructional-davion.ngrok-free.dev'],
-}
