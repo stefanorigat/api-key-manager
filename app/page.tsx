@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from "next/link";
-import { login, storeSession } from '@/lib/auth';
+import { login, storeSession, getStoredUser } from '@/lib/auth';
 import { initiateSSOLogin } from '@/lib/sso-auth';
 
 export default function Home() {
@@ -13,6 +13,13 @@ export default function Home() {
     rememberMe: true,
   });
   const [loginError, setLoginError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check if user is already logged in
+  useEffect(() => {
+    const user = getStoredUser();
+    setIsLoggedIn(!!user);
+  }, []);
 
   // Handle login
   const handleLogin = async (e: React.FormEvent) => {
@@ -168,12 +175,21 @@ export default function Home() {
             </div>
             <span className="text-xl font-display text-brand-dark dark:text-white">API Key Manager</span>
           </div>
-          <button
-            onClick={() => setShowLoginModal(true)}
-            className="px-5 py-2.5 bg-brand-dark text-white rounded-lg hover:bg-brand-navy transition-colors font-bold cursor-pointer text-base"
-          >
-            Sign In
-          </button>
+          {isLoggedIn ? (
+            <Link
+              href="/dashboard"
+              className="px-5 py-2.5 bg-brand-dark text-white rounded-lg hover:bg-brand-navy transition-colors font-bold cursor-pointer text-base"
+            >
+              Explore your keys →
+            </Link>
+          ) : (
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="px-5 py-2.5 bg-brand-dark text-white rounded-lg hover:bg-brand-navy transition-colors font-bold cursor-pointer text-base"
+            >
+              Sign In
+            </button>
+          )}
         </nav>
       </header>
 
@@ -199,12 +215,21 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
-                onClick={() => setShowLoginModal(true)}
-                className="px-8 py-4 bg-brand-dark text-white rounded-lg hover:bg-brand-navy transition-all font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
-              >
-                Get Started →
-              </button>
+              {isLoggedIn ? (
+                <Link
+                  href="/dashboard"
+                  className="px-8 py-4 bg-brand-dark text-white rounded-lg hover:bg-brand-navy transition-all font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
+                >
+                  Explore your keys →
+                </Link>
+              ) : (
+                <button
+                  onClick={() => setShowLoginModal(true)}
+                  className="px-8 py-4 bg-brand-dark text-white rounded-lg hover:bg-brand-navy transition-all font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
+                >
+                  Get Started →
+                </button>
+              )}
               <a
                 href="#features"
                 className="px-8 py-4 bg-white dark:bg-brand-medium text-brand-dark dark:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-brand-medium/80 transition-colors font-bold text-lg border-2 border-text-lighter dark:border-text-tertiary cursor-pointer"
@@ -293,12 +318,21 @@ export default function Home() {
               Get started in minutes with SSO authentication.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => setShowLoginModal(true)}
-                className="px-8 py-4 bg-white text-brand-dark rounded-lg hover:bg-brand-peach transition-colors font-bold text-lg shadow-lg cursor-pointer"
-              >
-                Start Managing Keys →
-              </button>
+              {isLoggedIn ? (
+                <Link
+                  href="/dashboard"
+                  className="px-8 py-4 bg-white text-brand-dark rounded-lg hover:bg-brand-peach transition-colors font-bold text-lg shadow-lg cursor-pointer"
+                >
+                  Explore your keys →
+                </Link>
+              ) : (
+                <button
+                  onClick={() => setShowLoginModal(true)}
+                  className="px-8 py-4 bg-white text-brand-dark rounded-lg hover:bg-brand-peach transition-colors font-bold text-lg shadow-lg cursor-pointer"
+                >
+                  Start Managing Keys →
+                </button>
+              )}
             </div>
           </div>
         </div>
